@@ -39,13 +39,15 @@ public class Hero : MonoBehaviour {
 		
 		// constrain to screen
 		Vector3 off = Utils.ScreenBoundsCheck(bounds,BoundsTest.onScreen);
-		if (off != Vector3.zero) {  // we need to move ship back on screen
-			pos -= off;
-			transform.position = pos;
-		}
-		
-		// rotate the ship to make it feel more dynamic
-		transform.rotation =Quaternion.Euler(yAxis*pitchMult, xAxis*rollMult,0);
+        if (off != Vector3.zero)
+        {  // we need to move ship back on screen
+            pos -= off;
+            pos.z -= 4.29999f;
+            transform.position = pos;
+        }
+
+        // rotate the ship to make it feel more dynamic
+        transform.rotation =Quaternion.Euler(yAxis*pitchMult, xAxis*rollMult,0);
 	}
 
     public GameObject lastTriggerGo = null;
