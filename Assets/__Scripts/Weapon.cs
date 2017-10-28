@@ -37,9 +37,15 @@ public class Weapon : MonoBehaviour {
     public GameObject collar;
     public float lastShot;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    void Awake()
+    {
         collar = transform.Find("Collar").gameObject;
+    }
+
+    void Start () {
+        
         SetType(_type);
 
         if (PROJECTILE_ANCHOR == null)
@@ -129,9 +135,4 @@ public class Weapon : MonoBehaviour {
         lastShot = Time.time;
         return (p);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
