@@ -86,7 +86,7 @@ public class Main : MonoBehaviour {
 
             GameObject go = Instantiate(prefabPowerUp) as GameObject;
             PowerUp pu = go.GetComponent<PowerUp>();
-            puType.SetType(puType);
+            //puType.SetType(puType);
 
             pu.transform.position = e.transform.position;
         }

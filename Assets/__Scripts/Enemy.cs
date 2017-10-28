@@ -33,6 +33,14 @@ public class Enemy : MonoBehaviour {
 
     void Update () {
         Move();
+        if(remainingDamageFrames > 0)
+        {
+            remainingDamageFrames--;
+            if(remainingDamageFrames == 0)
+            {
+                unShowDamage();
+            }
+        }
 	}
 
     public virtual void Move()
@@ -85,6 +93,7 @@ public class Enemy : MonoBehaviour {
                     Destroy(other);
                     break;
                 }
+                ShowDamage();
                 health -= Main.W_DEFS[p.type].damageOnHit;
                 if(health <= 0)
                 {
@@ -93,6 +102,22 @@ public class Enemy : MonoBehaviour {
                 }
                 Destroy(other);
                 break;
+        }
+    }
+
+    void ShowDamage()
+    {
+        foreach(Material m in materials)
+        {
+            m.color = Color.red;
+        }
+        remainingDamageFrames = showDamageForFrames;
+    }
+    void unShowDamage()
+    {
+        for(int i = 0; i < materials.Length; i++)
+        {
+            materials[i].color = originalColors[i];
         }
     }
 }
