@@ -113,6 +113,8 @@ public class Hero : MonoBehaviour {
                     {
                         w.SetType(pu.type);
                     }
+
+                    
                 }
                 else
                 {
@@ -127,7 +129,7 @@ public class Hero : MonoBehaviour {
 
     Weapon GetEmptyWeaponSlot()
     {
-        for (int i = 0; i <= weapons.Length; i++){
+        for (int i = 0; i < weapons.Length; i++){
             if(weapons[i].type == WeaponType.none)
             {
                 return (weapons[i]);
